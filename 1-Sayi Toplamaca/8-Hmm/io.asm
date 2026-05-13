@@ -34,12 +34,12 @@ print:
     .print_Loop:    
         lodsb
         cmp al, 0
-        je .done
+        je .print_done
 
         call printChar
     jmp .print_Loop
     
-.done
+.print_done:
 ret
 
 ;GIRDI
