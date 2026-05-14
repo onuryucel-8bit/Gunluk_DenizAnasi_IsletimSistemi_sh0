@@ -10,7 +10,7 @@ strcpy:
     
     .strcpy_loop:        
         cmp cx, 0
-        jmp .strcpy_done
+        je .strcpy_done
 
         ;al = ram[si]
         ;si++

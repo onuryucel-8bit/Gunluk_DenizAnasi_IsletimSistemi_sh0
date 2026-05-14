@@ -20,3 +20,4 @@ Duvara cercevelenmesi gereken guzellik
 
 [interrupt listesi](https://www.ctyme.com/rbrown.htm)
 
+[oswiki](https://wiki.osdev.org/Expanded_Main_Page)
