@@ -11,6 +11,8 @@ Kodlari calistirmak icin gereken zimbirtilar</h2>
 
 [x86 assembler](https://www.nasm.us)
 
+[balenaEtcher](https://etcher.balena.io/)
+
 Duvara cercevelenmesi gereken guzellik
 
 ![bellekler](resimler/bellekler.png)

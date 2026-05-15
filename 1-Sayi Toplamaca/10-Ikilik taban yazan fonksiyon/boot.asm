@@ -1,4 +1,4 @@
-[org 0x7C00]
+[org 0]
 bits 16
 
 ;CR: Carriage Return
@@ -20,7 +20,19 @@ bits 16
     call printChar
 %endmacro
 
+jmp 0x7c0:main
+
 main:
+
+    cli ;clear interrupts
+    mov ax, 0x7c0
+    mov ds, ax
+    mov es, ax
+    mov ax, 0
+    mov ss, ax
+    mov sp, 0x7c00    
+    sti ;enables interrupts
+
     ;print("sayi_1")
     mov si, girdiStr
     call print
@@ -37,12 +49,19 @@ main:
     call arrAsciiToInt
          
     call printBinary
-    
 
-    ;buffer[i] += sayi2[i]
+    mov si, buffer
+    mov di, buffer
+    mov cx, 10
+    .clearBuffer_loop:
+        lodsb
+        and al, 0
+        stosb
+        dec cx
+        cmp cx, 0
+        jne .clearBuffer_loop
 
-jmp $
-
+    jmp main
 
 ;for (int i = 0; str[i] != '\0'; i++) 
 ;{
@@ -84,7 +103,6 @@ arrAsciiToInt:
 ret
 
 
-
 %include "io.asm"
 %include "string.asm"
 
@@ -104,7 +122,7 @@ girdiStr2: db "sayi_2: ",0
 
 ;kullanilabilir alan boyutu
 %assign SIZE_empty(510 - SIZE)
-%warning "Bootloader boyutu = " %str(SIZE_empty) " bayt"
+%warning "Kullanilabilir alan boyutu = " %str(SIZE_empty) " bayt"
 
 times 510-($-$$) db 0
 dw 0xAA55
