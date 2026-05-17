@@ -1,0 +1,1 @@
+[Entering 64-Bit Long Mode | Make a 64 bit OS From Scratch!! | Part 5](https://www.youtube.com/watch?v=sk_ngabpwXQ&list=PLxN4E629pPnKKqYsNVXpmCza8l0Jb6l8-&index=5)
