@@ -1,5 +1,12 @@
-ENTRY(kernel_main)
 OUTPUT_FORMAT(binary)
+
+ENTRY(kernel_main)
+
+INPUT
+(
+    bin\binaries.o
+)
+
 
 SECTIONS
 {

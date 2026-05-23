@@ -1,0 +1,1 @@
+![da2](resimler/da2.png)
