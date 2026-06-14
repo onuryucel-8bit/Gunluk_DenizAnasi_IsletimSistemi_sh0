@@ -40,7 +40,7 @@ asm:
 	nasm -f bin boot\boot.asm -o boot.bin
 
 disam:
-	ndisasm boot.bin
+	ndisasm bin\bootloader.bin
 
 dikernel:
 	ndisasm -b 32 bin\kernel.bin > debug\kernel.txt

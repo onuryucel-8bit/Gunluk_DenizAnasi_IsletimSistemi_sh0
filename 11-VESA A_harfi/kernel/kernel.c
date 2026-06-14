@@ -16,6 +16,8 @@ https://lvgl.io/tools/fontconverter
 
 */
 
+
+
 typedef struct  __attribute__ ((packed))
 {
 	uint16_t attributes;		// deprecated, only bit 7 should be of interest to you, and it indicates the mode supports a linear frame buffer.
@@ -109,14 +111,10 @@ void kernel_main(void)
     idt_init();
     
 	
-	uint32_t x = 10, y = 10;
-    for (size_t i = 0; i < 500; i++)
-	{	
-		
-		draw_pixel32b(i, i, 0, 0XFF, 0);
-		
-		y++;
-		x = 10;		
+	
+    for (size_t x = 0; x < 500; x++)
+	{
+    	draw_pixel24b(x, 100, 0, 255, 0);
 	}
 	
 

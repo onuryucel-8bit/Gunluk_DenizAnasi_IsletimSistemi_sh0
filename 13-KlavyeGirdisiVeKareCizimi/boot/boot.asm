@@ -1,7 +1,7 @@
 [org 0x7c00]
 bits 16
 
-%define SEKTOR_SAYISI 10
+%define SEKTOR_SAYISI 12
 
 
 %define ASCII_KEY_ENTER 0x0D    ;CR: Carriage Return
@@ -36,13 +36,30 @@ main:
     mac_asagiSatiraGec
 
     call EnableA20
-    call enableVESA
             
     
     mov bx, 0x7e00
     mov dh, 1
     call fn_read_sectors
     
+    ;VGA 320x200
+    mov ax, 0x13
+    int 0x10
+
+    ;mov ax, 0xA000
+    ;mov cx, 0
+    
+    ;mov es, ax
+    ;mov di, 0
+    
+    ;A000:0000
+    ;.loopClearScreen:
+    ;    mov byte [es:di], 1
+    ;    inc di
+    ;    ;cx ?= 320 * 200
+    ;    cmp cx, 0xfa00
+    ;jne .loopClearScreen
+
     ;gdt tablosunu yukle
     lgdt [gdt_descriptor]
 
@@ -95,31 +112,6 @@ EnableA20:
     in al, 0x92
     or al, 2
     out 0x92, al
-ret
-
-enableVESA:
-
-    ;es:di => vbe_info
-    mov ax, 0
-    mov es, ax
-    mov di, 0x500
-
-    ;VESA mod bilgisi
-    mov ax, 0x4F01
-    mov cx, 0x115
-    int 0x10
-
-    cmp ax, 0x004F
-    jne vesa_failed
-    
-    mov ax, 0x4F02
-    ;mov bx, 0x4115  ;800x600x32 VESA mode
-    mov bx, 0x4118   ;1024x768x32 VESA mode
-    int 0x10
-
-    cmp ax, 0x004F
-    jne vesa_failed
-    
 ret
 
 %include "boot\gdt.asm"
