@@ -18,13 +18,27 @@
 void kernel_main(void) 
 {                      
     idt_init();
+    
+    printf("Bazlama Yiyen Deniz Anasi!\n");
         
-    int* a = (int*)malloc(sizeof(int));
-
-    *a = 5;
-    printf("a = %d", *a);
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhmm%s","yazi deneme");
-
+    uint8_t str[16];
+        
+    while (1)
+    {        
+        scanf(str, 16);
+        
+        if(!strcmp(str, "CLS"))
+        {
+            clearBuffer(VGA_Color_BLACK);
+            vgay = 0;
+            vgax = 0;
+        }
+        else
+        {
+            printf("ne diyon? ?_? bi halt anlamiyorum\n");
+        }
+    }
+    
     
 
     while (1) 

@@ -1,7 +1,7 @@
 <h1>DENIZ ANASI Isletim Sistemi Gunlugu </h1>
 
 
-
+![byda](resimler/bazlamayiyendenizanasi.gif)
 
 <h2> 
 Kodlari calistirmak icin gereken zimbirtilar</h2>
