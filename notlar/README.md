@@ -3,3 +3,5 @@
 Makefile icine GDB + qemu debug tarifi ekle
 
 [fat12](https://oriont.net/posts/fat12-overview)
+
+[font](https://github.com/coreboot/seabios/blob/master/src/font.c)

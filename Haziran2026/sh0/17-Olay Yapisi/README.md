@@ -1,0 +1,1 @@
+![bazlama_yiyen_deniz_anasi](resimler/bazlamayiyendenizanasi.gif)
